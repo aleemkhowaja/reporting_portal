@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="snapshotParameterListAction" class="com.path.actions.reporting.ftr.snapshots.SnapshotParameterListAction" scope="prototype" parent="baseAction">
+	 <property name="snapshotParameterBO" ref="snapshotParameterBO"></property>
+	 <property name="commonLookupBO" 	  ref="commonLookupBO"></property>
+	 <property name="designerBO" 	  	  ref="designerBO"></property>
+	 <property name="reportsMismatchBO" 	  	  ref="reportsMismatchBO"></property>
+	 <property name="fcrBO" 	  	  	  ref="fcrBO"></property>
+	</bean>
+	<bean id="snapshotParameterMaintAction" class="com.path.actions.reporting.ftr.snapshots.SnapshotParameterMaintAction" scope="prototype" parent="baseAction">
+	 <property name="snapshotParameterBO" ref="snapshotParameterBO"></property>
+	 <property name="controlRecordBO" 	  ref="controlRecordBO"></property>
+	</bean>	
+	<bean id="snapshotModifiedColumnAction" class="com.path.actions.reporting.ftr.snapshots.SnapshotModifiedColumnAction" scope="prototype" parent="baseAction">
+	 <property name="snapshotParameterBO" ref="snapshotParameterBO"></property>
+	</bean>
+	<bean id="snapshotDrilldownColumnAction" class="com.path.actions.reporting.ftr.snapshots.SnapshotDrilldownColumnAction" scope="prototype" parent="baseAction">
+	 <property name="snapshotParameterBO" ref="snapshotParameterBO"></property>
+	</bean>
+	
+	
+	
+	<bean id="snapshotInformationListAction" class="com.path.actions.reporting.ftr.snapshots.SnapshotInformationListAction" scope="prototype" parent="baseAction">
+	 <property name="snapshotParameterBO" ref="snapshotParameterBO"></property>
+	 <property name="loginBO" 			  ref="loginBO">			</property>
+	 <property name="commonRepFuncBO" 	  ref="commonRepFuncBO">	</property>
+	</bean>
+	<bean id="snapshotInformationMaintAction" class="com.path.actions.reporting.ftr.snapshots.SnapshotInformationMaintAction" scope="prototype" parent="baseAction">
+	 <property name="snapshotParameterBO" ref="snapshotParameterBO"></property>
+	 <property name="commonLookupBO" 	  ref="commonLookupBO"></property>
+	 <property name="reportBO" ref="reportBO"></property>
+	 <property name="controlRecordBO" 	  ref="controlRecordBO"></property>
+	 <property name="commonReportingBO" 	  ref="commonReportingBO"></property>
+	</bean>	
+</beans>

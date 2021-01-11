@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="ftrCommonAction" class="com.path.actions.reporting.ftr.common.FtrCommonAction" scope="prototype" parent="baseAction">
+	 <property name="designerBO"  		ref="designerBO"></property>
+	 <property name="reportBO"  		ref="reportBO"></property>
+	 <property name="fcrBO"  			ref="fcrBO"></property>
+	</bean>
+</beans>

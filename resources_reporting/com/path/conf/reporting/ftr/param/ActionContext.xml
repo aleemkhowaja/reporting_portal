@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="cbParamListAction"
+		class="com.path.actions.reporting.ftr.cbParam.CbParamListAction"
+		scope="prototype" parent="baseAction">
+		<property name="cbParamBO" ref="cbParamBO"></property>
+	</bean>
+
+	<bean id="filterCriteriaListAction"
+		class="com.path.actions.reporting.ftr.filterCriteria.FilterCriteriaListAction"
+		scope="prototype" parent="baseAction">
+		<property name="filterCriteriaBO" ref="filterCriteriaBO"></property>
+		<property name="commonLookupBO" ref="commonLookupBO"></property>
+	</bean>
+
+	<bean id="templateMaintReportAction"
+		class="com.path.actions.reporting.ftr.template.TemplateMaintReportAction"
+		scope="prototype" parent="baseAction">
+		<property name="templateBO" ref="templateBO"></property>
+		<property name="commonLibBO" ref="commonLibBO"></property>
+		<property name="commonLookupBO" ref="commonLookupBO"></property>
+	</bean>
+
+	
+	<bean id="templateMismatchAction"
+		class="com.path.actions.reporting.ftr.template.TemplateMismatchAction"
+		scope="prototype" parent="baseAction">
+		<property name="templateBO" ref="templateBO"></property>
+	</bean>
+	
+	<bean id="templateMaintCriteriaAction"
+		class="com.path.actions.reporting.ftr.template.TemplateMaintCriteriaAction"
+		scope="prototype" parent="baseAction">
+		<property name="commonLookupBO" ref="commonLookupBO"></property>
+		<property name="templateBO" ref="templateBO"></property>
+	</bean>
+	
+	<bean id="columnTemplateAction"
+		class="com.path.actions.reporting.ftr.columntemplate.ColumnTemplateAction"
+		scope="prototype" parent="baseAction">
+		<property name="columnTemplateBO" ref="columnTemplateBO"></property>
+		<property name="commonLookupBO" ref="commonLookupBO"></property>
+		<property name="templateBO" ref="templateBO"></property>
+	</bean>
+	<bean id="columnTemplateSearchGridAction"
+		class="com.path.actions.reporting.ftr.columntemplate.ColumnTemplateSearchGridAction"
+		scope="prototype" parent="baseAction">
+		<property name="columnTemplateBO" ref="columnTemplateBO"></property>
+
+	</bean>
+
+
+	<bean id="templateProcessAction"
+		class="com.path.actions.reporting.ftr.templateProcess.TemplateProcessAction"
+		scope="prototype" parent="baseAction">
+		<property name="templateProcBO" ref="templateProcBO"></property>
+	</bean>
+
+	<bean id="fcrAction" class="com.path.actions.reporting.ftr.fcr.FcrAction"
+		scope="prototype" parent="baseAction">
+		<property name="fcrBO" ref="fcrBO"></property>
+		<property name="commonRepFuncBO" ref="commonRepFuncBO"></property>
+		<property name="commonLookupBO" ref="commonLookupBO"></property>
+		<property name="schedulerBO" 	ref="schedulerBO"></property>
+		<property name="templateBO" ref="templateBO"></property>
+	</bean>
+
+	<bean id="foldersAction" class="com.path.actions.reporting.ftr.folders.FoldersAction"
+		scope="prototype" parent="baseAction">
+		<property name="FoldersBO" ref="foldersBO"></property>
+		<property name="commonRepFuncBO" ref="commonRepFuncBO"></property>
+		<property name="commonLibBO" ref="commonLibBO"></property>
+	</bean>
+
+	<bean id="connectionAction" class="com.path.actions.reporting.connection.ConnectionAction"
+		scope="prototype" parent="baseAction">
+		<property name="connectionBO" ref="connectionBO"></property>
+		<property name="commonRepFuncBO" ref="commonRepFuncBO"></property>
+	</bean>
+
+	<bean id="appConnectionAction"
+		class="com.path.actions.reporting.connection.AppConnectionAction"
+		scope="prototype" parent="baseAction">
+		<property name="connectionBO" ref="connectionBO"></property>
+	</bean>
+	
+	<bean id="controlRecordAction"
+		class="com.path.actions.reporting.ftr.controlRecord.ControlRecordAction"
+		scope="prototype" parent="baseAction">
+		<property name="controlRecordBO" 	ref="controlRecordBO"></property>
+		<property name="commonLookupBO" 	ref="commonLookupBO"></property>
+	</bean>
+
+	<bean id="templateHeaderAction"
+		class="com.path.actions.reporting.ftr.templateHeader.TemplateHeaderAction"
+		scope="prototype" parent="baseAction">
+		<property name="templateHeaderBO" 	ref="templateHeaderBO"></property>
+		<property name="reportBO" 		ref="reportBO"></property>
+		<property name="commonLookupBO" 	ref="commonLookupBO"></property>
+	</bean>
+	
+	<bean id="timeBucketsAction"
+		class="com.path.actions.reporting.ftr.timeBuckets.TimeBucketsAction"
+		scope="prototype" parent="baseAction">
+		<property name="timeBucketsBO" ref="timeBucketsBO"></property>
+	</bean>
+	
+			
+	
+		<bean id="templateMaintRepLinesAction"
+		class="com.path.actions.reporting.ftr.template.TemplateMaintRepLinesAction"
+		scope="prototype" parent="baseAction">
+		<property name="templateBO" ref="templateBO"></property>
+		<property name="commonLookupBO" ref="commonLookupBO"></property>
+	</bean>
+	
+	<bean id="TemplateMaintGLAction"
+		class="com.path.actions.reporting.ftr.template.TemplateMaintGLAction"
+		scope="prototype" parent="baseAction">
+		<property name="commonLookupBO" ref="commonLookupBO"></property>
+		<property name="templateBO" ref="templateBO"></property>
+	</bean>
+	<bean id="templateExpressionAction"
+		class="com.path.actions.reporting.ftr.templateExpression.TemplateExpressionAction"
+		scope="prototype" parent="baseAction">
+	</bean>
+		
+	<bean id="columnTemplateCriteria"
+		class="com.path.actions.reporting.ftr.columntemplate.ColumnTemplateMaintCriteriaAction"
+		scope="prototype" parent="baseAction">
+		<property name="commonLookupBO" ref="commonLookupBO"></property>
+		<property name="columnTemplateBO" ref="columnTemplateBO"></property>
+	</bean>
+		
+	<bean id="fileExportImportListAction"
+		class="com.path.actions.reporting.ftr.fileexportimport.FileExportImportListAction"
+		scope="prototype" parent="baseAction">
+		<property name="fileExportImportBO" ref="fileExportImportBO"></property>
+	</bean>
+		<bean id="fileExportImportLookupAction"
+		class="com.path.actions.reporting.ftr.fileexportimport.FileExportImportLookupAction"
+		scope="prototype" parent="baseAction">
+		<property name="fileExportImportBO" ref="fileExportImportBO"></property>
+	</bean>
+	
+	<bean id="fileExportImportMaintAction"
+		class="com.path.actions.reporting.ftr.fileexportimport.FileExportImportMaintAction"
+		scope="prototype" parent="baseAction">
+		<property name="fileExportImportBO" ref="fileExportImportBO"></property>
+		<property name="commonRepFuncBO" ref="commonRepFuncBO"></property>
+		<property name="commonLookupBO" ref="commonLookupBO"></property>
+	</bean>	
+</beans>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+  
+   <bean id="designerBO" factory-bean="reportingServiceBeanFactory"  factory-method="getInstance" parent="baseBO">					
+		<constructor-arg name="implClassName" value="com.path.bo.reporting.designer.impl.DesignerBOImpl" />
+		<constructor-arg name="interfaceName" value="com.path.bo.reporting.designer.DesignerBO" />
+		<constructor-arg name="remoteServiceName" value="designerBOService" />
+		<property name="designerDAO" ref="designerDAO"></property>
+		<property name="queryBO" ref="queryBO"></property>
+		<property name="fcrBO" ref="fcrBO"></property>
+		<property name="procDAO" ref="procDAO"></property>
+		<property name="commonRepFuncBO" ref="commonRepFuncBO"></property>
+		<property name="procBO" ref="procBO"></property>
+		<property name="schedulerBO" ref="schedulerBO"></property>
+		<property name="foldersBO" ref="foldersBO"></property>
+		<property name="foldersDAO" ref="foldersDAO"></property>
+		<property name="translationBO" ref="translationBO"></property>
+		<property name="snapshotParameterDAO" ref="snapshotParameterDAO"></property>
+		<property name="ImageBO" ref="ImageBO"></property>
+		<property name="uploadImageBO" ref="uploadImageBO"></property>
+	</bean>
+		
+   <bean id="queryBO" factory-bean="reportingServiceBeanFactory"  factory-method="getInstance" parent="baseBO">					
+		<constructor-arg name="implClassName" value="com.path.bo.reporting.designer.impl.QueryBOImpl" />
+		<constructor-arg name="interfaceName" value="com.path.bo.reporting.designer.QueryBO" />
+		<constructor-arg name="remoteServiceName" value="queryBOService" />
+		<property name="queryDAO" ref="queryDAO"></property>
+		<property name="reportDAO" ref="reportDAO"></property>
+		<property name="commonLibBO" ref="commonLibBO"></property>
+		<property name="commonLookupBO" ref="commonLookupBO"></property>
+	</bean>	
+	
+	 <bean id="snapShotBO" factory-bean="reportingServiceBeanFactory"  factory-method="getInstance" parent="baseBO">					
+		<constructor-arg name="implClassName" value="com.path.bo.reporting.designer.SnapShotBOImpl" />
+		<constructor-arg name="interfaceName" value="com.path.bo.reporting.designer.SnapShotBO" />
+		<constructor-arg name="remoteServiceName" value="snapShotBOService" />
+		<property name="snapShotDAO" ref="snapShotDAO"></property>
+		<property name="commonLookupBO"  ref="commonLookupBO"></property>
+	</bean>
+	
+	<!-- Mira 04-Jun-2012 Entities' Screen -->
+	<bean id="entitiesBO" factory-bean="reportingServiceBeanFactory" factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName" value="com.path.bo.reporting.designer.impl.EntitiesBOImpl" />
+		<constructor-arg name="interfaceName" value="com.path.bo.reporting.designer.EntitiesBO" />
+		<constructor-arg name="remoteServiceName" value="entitiesBOService" />
+		<property name="entitiesDAO" ref="entitiesDAO"></property>
+	</bean>
+	<!-- END Mira 04-Jun-2012 -->
+	
+	<bean id="procBO" factory-bean="reportingServiceBeanFactory" factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName" value="com.path.bo.reporting.designer.impl.ProceduresBOImpl" />
+		<constructor-arg name="interfaceName" value="com.path.bo.reporting.designer.ProceduresBO" />
+		<constructor-arg name="remoteServiceName" value="proceduresBOService" />
+		<property name="procDAO" ref="procDAO"></property>
+		<property name="commonRepFuncBO" ref="commonRepFuncBO"></property>
+		<property name="commonLibBO" ref="commonLibBO"></property>
+	</bean>
+	
+	<bean id="hyperlinksBO" factory-bean="reportingServiceBeanFactory" factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName" value="com.path.bo.reporting.designer.impl.HyperlinksBOImpl" />
+		<constructor-arg name="interfaceName" value="com.path.bo.reporting.designer.HyperlinksBO" />
+		<constructor-arg name="remoteServiceName" value="hyperlinksBOService" />
+		<property name="hyperlinksDAO" ref="hyperlinksDAO"></property>
+	</bean>
+	
+	<bean id="uploadImageBO" factory-bean="reportingServiceBeanFactory" factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName" value="com.path.bo.reporting.designer.impl.UploadImageBOImpl" />
+		<constructor-arg name="interfaceName" value="com.path.bo.reporting.designer.UploadImageBO" />
+		<constructor-arg name="remoteServiceName" value="uploadImageBOService" />
+		<property name="uploadImageDAO" ref="uploadImageDAO"></property>
+	</bean>
+	
+	<bean id="ImageBO" factory-bean="reportingServiceBeanFactory" factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName" value="com.path.bo.reporting.designer.impl.ImageBOImpl" />
+		<constructor-arg name="interfaceName" value="com.path.bo.reporting.designer.ImageBO" />
+		<constructor-arg name="remoteServiceName" value="ImageBOService" />
+		<property name="designerDAO" ref="designerDAO"></property>
+    </bean>
+	
+ </beans>

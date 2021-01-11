@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+<package name="reportsRet" namespace="/path/reportsRet" extends="path-default">
+	<action name="dynRepParamsAction_*" method="{1}" class="dynamicRepParamsAction">
+		<result name="SUCCESS_REP_PREVIEW">/WEB-INF/pages/reporting/reports/ReportMenu.jsp</result>
+		<result name="SUCCESS_DYNAMIC_PARAM" type="freemarker">/WEB-INF/pages/technical/dynamicparams/DynamicParams.ftl</result>
+		<result name="success" type="json">
+	  		<param name="ignoreHierarchy">false</param> 	
+		</result>
+	</action>
+	
+	<action name="jasperReport" class="reportAction" method="generateReport">   
+		<result name="successtest" type="stream">
+			  <param name="contentType">application/octet-stream</param>
+			  <param name="contentDisposition">attachment;filename="${filename}"</param>
+			  <param name="bufferSize">1024</param>			
+			  <param name="inputName">fileStream</param>
+		</result> 
+    </action>
+</package>
+
+<package name="snapShotAction" namespace="/path/snapShot" extends="path-default">
+  	<action name="snapShotAction_*" method="{1}" class="snapShotAction">
+		<result name="snapShots">/WEB-INF/pages/reporting/reports/Snapshots.jsp</result>
+		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		</result>
+	</action>	
+</package>
+
+<package name="archiveAction" namespace="/path/archive" extends="path-default">
+  	<action name="archiveAction_*" method="{1}" class="archiveAction">
+		<result name="archive">/WEB-INF/pages/reporting/snapshots/Archive.jsp</result>
+		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		</result>
+	</action>	
+</package>
+
+<package name="userAccessAction" namespace="/path/userAccess" extends="path-default">
+  	<action name="userAccessAction_*" method="{1}" class="userAccessAction">
+		<result name="userAccess">/WEB-INF/pages/reporting/snapshots/UserAccessList.jsp</result>
+		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		</result>
+	</action>	
+</package>
+
+	
+</struts>

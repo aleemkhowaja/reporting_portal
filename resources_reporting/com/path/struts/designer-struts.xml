@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="designer" namespace="/path/designer" extends="path-default">
+		<action name="wizard_*" method="{1}" class="wizardAction">
+        	<result name="success">/WEB-INF/pages/reporting/designer/Wizard.jsp</result>
+        	<result name="queryDesigner">/WEB-INF/pages/reporting/designer/QueryDesigner.jsp?mode=new</result>
+        	<result name="queriesList">/WEB-INF/pages/reporting/designer/QueriesList.jsp</result>
+        	<result name="successWizard" type="json"></result>
+		</action>
+		
+		<action name="queryDesign_*" method="{1}" class="queryDesignerAction">
+			<result name="input" type="json">
+				<param name="ignoreHierarchy">false</param> 
+			</result>      	
+			<result name="error" type="json">
+	     		<param name="ignoreHierarchy">false</param> 
+	    	</result>
+	    	<result name="grid" type="json"> 
+		    	<param name="ignoreHierarchy">false</param> 
+		  	</result>  
+        	<result name="newquery">/WEB-INF/pages/reporting/designer/query/Query.jsp</result>
+        	<result name="expressions">/WEB-INF/pages/reporting/designer/query/Expressions.jsp</result>
+        	<result name="conditions">/WEB-INF/pages/common/reporting/Conditions.jsp</result>
+        	<result name="arguments">/WEB-INF/pages/reporting/designer/query/Arguments.jsp</result>
+     	    <result name="joins">/WEB-INF/pages/reporting/designer/query/Joins.jsp</result>
+        	<result name="aggregate">/WEB-INF/pages/reporting/designer/query/Aggregate.jsp</result>
+        	<result name="order">/WEB-INF/pages/common/reporting/Order.jsp</result>
+        	<result name="having">/WEB-INF/pages/reporting/designer/query/havings.jsp</result>
+        	<result name="syntax">/WEB-INF/pages/reporting/designer/query/Syntax.jsp</result>
+        	<!-- <result name="chooseFields">/WEB-INF/pages/reporting/designer/query/ChooseFields.jsp</result> -->        	 
+		    <result name="success" type="json"> 
+		    	<param name="ignoreHierarchy">false</param> 
+		    </result>
+		    <result name="successEntities">/WEB-INF/pages/reporting/designer/query/SelEntitiesList.jsp</result>
+		    <result name="successFields">/WEB-INF/pages/reporting/designer/query/SelFieldsList.jsp</result>
+		    <result name="queryDesigner">/WEB-INF/pages/reporting/designer/QueryDesigner.jsp?mode=new</result>
+		    <result name="qryTypes">/WEB-INF/pages/reporting/designer/query/QueryTypes.jsp</result>
+		    <result name="parameters">/WEB-INF/pages/reporting/designer/RepArguments.jsp</result>
+		    <result name="linkQuery">/WEB-INF/pages/reporting/designer/query/LinkQueryArgs.jsp</result>
+		    <result name="constraintsArgs">/WEB-INF/pages/reporting/designer/query/ArgumentsConstraintsMaint.jsp</result>
+		</action>
+		
+		<action name="reportDesign_*" method="{1}" class="editorAction">
+			<result name="reportDesigner">/WEB-INF/pages/reporting/designer/Main.jsp</result>
+        	<result name="queryDesigner">/WEB-INF/pages/reporting/designer/QueryDesigner.jsp?mode=edit</result>
+        	<result name="valueTypeSelection">/WEB-INF/pages/reporting/designer/ValueTypeSelection.jsp</result>        	
+        	<result name="properties">/WEB-INF/pages/reporting/designer/ReportProperties.jsp</result>
+        	<result name="successMnt">/WEB-INF/pages/reporting/reports/UploadDownloadReportMaint.jsp</result>
+        	<result name="groupBy">/WEB-INF/pages/common/reporting/GroupByList.jsp</result>
+        	<result name="successDynPrev">/WEB-INF/pages/reporting/reports/ReportMenu.jsp</result>
+        	<result name="editor">/WEB-INF/pages/reporting/designer/Editor.jsp</result>
+        	
+        	<result name="editorSuccess" type="json">
+        		<param name="ignoreHierarchy">false</param> 
+        	</result>  
+        	<result name="error" type="json">
+	     		<param name="ignoreHierarchy">false</param> 
+	    	</result>
+		</action>
+		
+		<action name="reportsList_*" method="{1}" class="reportsListAction">
+        	<result name="success">/WEB-INF/pages/reporting/designer/ReportsList.jsp</result>
+        	<result name="successSA">/WEB-INF/pages/reporting/reports/SaveAsReport.jsp</result>
+        	<result name="grid" type="json"> 
+		    	<param name="ignoreHierarchy">false</param> 
+		    </result>        
+		</action>
+
+		<action name="queriesList_*" method="{1}" class="queriesListAction">
+			<result name="templateQueries">/WEB-INF/pages/reporting/designer/Queries.jsp</result>
+        	<result name="success">/WEB-INF/pages/reporting/designer/QueriesList.jsp</result>
+        	<result name="grid" type="json"> 
+		    	<param name="ignoreHierarchy">false</param> 
+		    </result> 
+		    <result name="queryDesigner">/WEB-INF/pages/reporting/designer/QueryDesigner.jsp?mode=edit</result>
+		    <result name="input" type="json"></result>   
+		    <result name="error" type="json">
+	     		<param name="ignoreHierarchy">false</param> 
+	    	</result> 
+		</action>
+		
+		<action name="image_*" method="{1}" class="imageAction">
+        	<result name="success">/WEB-INF/pages/reporting/designer/images/ImagesList.jsp</result>
+        	<result name="grid" type="json"> 
+		    	<param name="ignoreHierarchy">false</param> 
+		    </result>        
+		</action>
+		
+		<action name="uploadImage_*" method="{1}" class="uploadImageAction">
+			
+			<interceptor-ref name="fileUpload">
+			</interceptor-ref>
+			<interceptor-ref name="pathDefaultStack"/>
+        	<result name="openUpload">/WEB-INF/pages/reporting/designer/images/UploadImage.jsp</result>
+        	<result name="success" type="json"> 
+		    	<param name="ignoreHierarchy">false</param> 
+		    </result>
+			<result name="successUpload" type="stream">	    	  			
+				  <param name="contentType">text/html</param>
+				  <param name="inputName">scriptStream</param>					   				   
+			 </result>      
+		</action>
+		
+		<action name="proc_*" method="{1}" class="proceduresAction">
+        	<result name="success">/WEB-INF/pages/reporting/designer/procedures/ProceduresList.jsp</result>
+        	<result name="procParams">/WEB-INF/pages/reporting/designer/procedures/procedureParamsList.jsp</result>
+        	<result name="grid" type="json"> 
+		    	<param name="ignoreHierarchy">false</param> 
+		    </result>        
+		</action>
+		
+		<action name="upDownReport_*" method="{1}" class="uploadDownloadReportAction">
+			<result name="successJSON" type="json">
+				<param name="ignoreHierarchy">false</param>
+                <param name="contentType">text/plain</param>
+            </result>      
+			<interceptor-ref name="fileUpload">
+			</interceptor-ref>
+			<interceptor-ref name="pathDefaultStack"/>
+        	<result name="success" type="json"> 
+		    	<param name="ignoreHierarchy">false</param> 
+		    </result>
+			<result name="successUpload" type="stream">	    	  			
+				  <param name="contentType">text/html</param>
+				  <param name="inputName">scriptStream</param>					   				   
+			 </result>
+			 <result name="uploadDownload">/WEB-INF/pages/reporting/reports/UploadDownloadReport.jsp</result>
+			 <result name="exportParam">/WEB-INF/pages/reporting/reports/ExportParam.jsp</result>    
+			 <result name="importParam">/WEB-INF/pages/reporting/reports/ImportParam.jsp</result>        
+		</action>
+		
+		<action name="hyperLinks_*" method="{1}" class="hyperlinksAction">
+			<result name="hyperlink">/WEB-INF/pages/reporting/designer/hyperlinks/HyperlinksMaint.jsp</result>  
+			<result name="hypParams">/WEB-INF/pages/reporting/designer/hyperlinks/HyperlinkParams.jsp</result>  
+			<result name="success" type="json"> 
+		    	<param name="ignoreHierarchy">false</param> 
+		    </result>
+		</action>
+		
+		<action name="subrep_*" method="{1}" class="subReportAction">
+        	<result name="success">/WEB-INF/pages/reporting/designer/subreport/SubReportsList.jsp</result>
+        	<result name="subRepParams">/WEB-INF/pages/reporting/designer/subreport/SubReportParamList.jsp</result>
+            <result name="subRepList">/WEB-INF/pages/reporting/designer/subreport/SubReport.jsp</result> 
+        	<result name="grid" type="json"> 
+		    	<param name="ignoreHierarchy">false</param> 
+		    </result>        
+		</action>
+		
+		<action name="hashTbl_*" method="{1}" class="hashTableAction">
+        	<result name="hashTbl">/WEB-INF/pages/reporting/designer/query/HashTableList.jsp</result>
+        	<result name="success" type="json"> 
+		    	<param name="ignoreHierarchy">false</param> 
+		    </result>        
+		</action>
+		
+		<action name="uploadDownloadImages_*" method="{1}" class="uploadDownloadImagesAction">
+        	<result name="uploadDownloadImages">/WEB-INF/pages/reporting/reports/UploadDownloadImagesList.jsp</result>
+        	<result name="success" type="json"> 
+		    	<param name="ignoreHierarchy">false</param> 
+		    </result>        
+		</action>
+		
+		<action name="repClient_*" method="{1}" class="repClientAction">
+        	<result name="repClient">/WEB-INF/pages/reporting/designer/ReportClientList.jsp</result>
+        	<result name="grid" type="json"> 
+		    	<param name="ignoreHierarchy">false</param> 
+		    </result>        
+		</action>
+		
+    </package>
+	
+</struts>

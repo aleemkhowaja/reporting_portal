@@ -1,0 +1,19 @@
+<decorators defaultdir="/WEB-INF/decorators">
+
+	<!-- decorator of the screens -->
+    <decorator name="main" page="AppMain.jsp">
+       <pattern>/pathdesktop/DesktopAction_*</pattern>
+    </decorator>
+    
+    <!-- decorator of the welcome screen -->
+    <decorator name="desktop" page="WelcomeMain.jsp">
+       <pattern>/pathdesktop/indexDesktopAction.action</pattern>
+       <pattern>/pathdesktop/loginCompBrAction*</pattern>
+       <pattern>/pwdchange/*</pattern>
+    </decorator>
+    
+    <excludes>
+	 	<pattern></pattern>
+     </excludes>
+     
+</decorators>

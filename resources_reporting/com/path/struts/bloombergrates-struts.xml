@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="bloombergRates" namespace="/path/bloombergRates" extends="path-default">
+		<action name="BloombergRatesListAction_*" class="bloombergRatesListAction" method="{1}">
+				
+			<interceptor-ref name="fileUpload">
+			</interceptor-ref>
+			<interceptor-ref name="pathDefaultStack"/>
+				<result name="success" type="json"> 
+					<param name="ignoreHierarchy">false</param> 
+				</result>
+		</action>
+		<action name="BloombergRatesMaintAction_*" class="bloombergRatesMaintAction" method="{1}">
+				<result name="bloombergRatesList">/WEB-INF/pages/reporting/ftr/bloombergrates/BloombergRatesList.jsp</result>
+				<result name="success">/WEB-INF/pages/reporting/ftr/bloombergrates/BloombergRatesMaint.jsp</result>
+		</action>
+
+	</package>
+</struts>

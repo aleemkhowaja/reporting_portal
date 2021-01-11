@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="unsecure" location="23,535" size="460,70">
+    <action name="unSecureAction_*" location="15,23" size="150,40" />
+    <action name="loginAction" location="260,23" size="150,40" />
+  </package>
+  <package name="path" location="378,10" size="525,420">
+    <action name="TopMenuAction_*" location="65,57" size="150,41">
+      <result name="menuLang">
+        <resourceEdge source="menuLang" routing="0" target="Languages.jsp" />
+      </result>
+    </action>
+    <action name="indexDesktopAction" location="65,163" size="150,40" />
+    <action name="DesktopAction_*" location="310,163" size="150,40" />
+    <action name="loginCompBrAction_*" location="310,281" size="150,83">
+      <result name="login_comp_br">
+        <resourceEdge source="login_comp_br" routing="0" target="LoginCompBr.jsp" />
+      </result>
+      <result name="loginCompBr" />
+      <result name="checkLoginSucess" />
+    </action>
+  </package>
+  <webResource name="Languages.jsp" path="/WEB-INF/pages/common/headermenu/Languages.jsp" location="10,30" size="150,55" />
+  <webResource name="LoginCompBr.jsp" path="/WEB-INF/pages/appcomponents/desktop/LoginCompBr.jsp" location="940,275" size="150,55" />
+</Struts2Diagram>
+

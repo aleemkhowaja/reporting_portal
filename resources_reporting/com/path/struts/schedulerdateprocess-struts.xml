@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="schedulerDateProcess" namespace="/path/schedulerDateProcess" extends="path-default">
+		<action name="schedulerDateProcessListAction_*" class="schedulerDateProcessListAction" method="{1}">
+
+			<interceptor-ref name="pathDefaultStack"/>
+					<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+				<result name="success">/WEB-INF/pages/reporting/ftr/schedulerdateprocess/SchedulerDateProcessList.jsp</result> 
+				<result name="json" type="json">
+					<param name="ignoreHierarchy">false</param> 
+				</result>
+				   <result name="grid" type="json"> 
+		    			<param name="ignoreHierarchy">false</param> 
+		  		  </result>  
+				  <result name="successFrm">/WEB-INF/pages/reporting/ftr/schedulerdateprocess/SchedulerDateProcessMaint.jsp</result>
+			
+		</action>
+		<action name="SchedulerDateProcessMaintAction_*" class="schedulerDateProcessMaintAction" method="{1}">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>    
+		</action>
+		
+
+	</package>
+</struts>
+   
+  

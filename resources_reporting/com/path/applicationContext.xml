@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+ 
+    <bean id="contextApplicationContextProvider"	class="com.path.lib.common.util.ApplicationContextProvider">
+	</bean>
+	
+	<!-- should be located after  contextApplicationContextProvider-->
+	<import  resource="classpath:com/path/conf/application_security.xml"/>
+    <import resource="classpath:com/path/conf/**/*Context.xml"/>
+	
+	<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	    <property name="locations">
+	    	<list>
+		        <value>classpath:PathRemoting.properties</value>
+		        <value>classpath:PathRepRemoting.properties</value>
+	        </list>
+	    </property>
+	</bean>
+	
+	<bean class="com.path.lib.remote.PathBeanFactoryPostProcessor" >
+		<property name="beanAvailability" value="${reporting.beanAvailability}" />
+	</bean>
+	
+	<bean id="pathRemotingPropertiesProvider" class="com.path.lib.remote.PathRemotingPropertiesProvider" />
+	
+	<bean id="pathBeanFactory" class="com.path.lib.remote.PathBeanFactory">
+		<property name="beanAvailability" value="${reporting.beanAvailability}" />
+		<property name="serviceURL" value="${reporting.serviceURL}" />
+		<property name="technique" value="${reporting.remoting.technique}" />
+	</bean>
+	<bean id="reportingServiceBeanFactory" class="com.path.lib.remote.PathBeanFactory">
+		<property name="beanAvailability" value="${reporting.beanAvailability}" />
+		<property name="serviceURL" value="${reporting.serviceURL}" />
+		<property name="technique" value="${reporting.remoting.technique}" />
+	</bean>
+	<!-- this baseBO is just to be able to put parent in BOContext.xml common file 
+	 basically used to instantiate genericDAO inside BaseBO
+	-->
+	<bean id="baseBO" abstract="true"/>   
+	
+	<bean id="baseAction" abstract="true"  scope="prototype" >
+		 <property name="baseServices" ref="baseServices"></property>
+		 <property name="auditBO" ref="auditBO"></property>
+	</bean>
+	
+	 <bean id="retailBaseAction" abstract="true" scope="prototype" parent="baseAction">
+	   <property name="memoBO" ref="memoBO"></property>
+	</bean>
+  
+    <bean id="baseServices" class="com.path.lib.common.base.BaseServicesImpl">
+		<property name="commonLibBO" ref="commonLibBO"></property>		
+		<property name="verbose" value="true"></property>				
+	</bean>
+</beans>

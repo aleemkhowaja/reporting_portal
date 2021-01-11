@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="scheduler" namespace="/path/scheduler" extends="path-default">
+		<action name="loadSchedGrid" class="schedulerAction" method="loadGrid">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="schedulerMainAction" class="schedulerAction"
+			method="execute">
+			<result name="success">/WEB-INF/pages/reporting/scheduler/Scheduler.jsp
+			</result>
+		</action>
+		<action name="schedulerEngineAction" class="schedulerEngineAction"
+			method="execute">
+			<result name="success">/WEB-INF/pages/reporting/scheduler/SchedulerEngine.jsp
+			</result>
+		</action>
+		
+		<action name="schedulerEngine_*" class="schedulerEngineAction"
+			method="{1}">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="findSingleSchedule" class="schedulerAction" method="findSingleSchedule">
+			<result name="successMnt">/WEB-INF/pages/reporting/scheduler/SchedulerMaint.jsp</result>
+		</action>
+		<action name="scheduler_*" method="{1}" class="schedulerAction">
+            <result name="success" type="json"> 
+		    	<param name="ignoreHierarchy">false</param> 
+		    </result> 
+	        <result name="error" type="json">
+     			<param name="ignoreHierarchy">false</param> 
+	    	</result>          
+	    	<result name="successUsrsLst">/WEB-INF/pages/reporting/scheduler/MailUsersList.jsp</result>    
+			<result name="successSchedGroupBy">/WEB-INF/pages/reporting/scheduler/SchedulerGroupByList.jsp</result>    			
+		</action>	    
+		
+		<action name="schedulerMailLogDet_*" method="{1}" class="schedulerMailLogDetailsAction">
+			<result name="success" type="json"> 
+		    	<param name="ignoreHierarchy">false</param> 
+		    </result> 
+		</action>	
+	</package>
+</struts>

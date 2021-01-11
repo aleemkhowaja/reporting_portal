@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="secureReports" location="0,0" size="0,0">
+    <action name="dynRepParamsAction_*" location="0,0" size="0,0">
+      <result name="SUCCESS_REP_PREVIEW">
+        <resourceEdge source="SUCCESS_REP_PREVIEW" routing="0" target="ReportMenu.jsp" />
+      </result>
+      <result name="SUCCESS_DYNAMIC_PARAM" />
+    </action>
+    <action name="jasperReport" location="0,0" size="0,0">
+      <result name="successtest" />
+    </action>
+    <action name="reportAction_*" location="0,0" size="0,0">
+      <result name="snapShots" />
+      <result name="successSnapShots" />
+    </action>
+    <action name="dynLkupAction_*" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="unsecureReports" location="0,0" size="0,0">
+    <action name="reportAction_*" location="0,0" size="0,0">
+      <result name="successtest" />
+    </action>
+    <action name="dynLkupAction_*" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="snapShotAction" location="0,0" size="0,0">
+    <action name="snapShotAction_*" location="0,0" size="0,0">
+      <result name="snapShots" />
+      <result name="successSnapShots" />
+    </action>
+  </package>
+  <webResource name="Report.jsp" path="/WEB-INF/pages/reporting/Reports/Report.jsp" location="0,0" size="0,0" />
+  <webResource name="ReportMenu.jsp" path="/WEB-INF/pages/reporting/Reports/ReportMenu.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

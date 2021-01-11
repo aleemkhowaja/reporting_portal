@@ -1,0 +1,1158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="filterCriteria" namespace="/path/filterCriteria" extends="path-default">
+		
+		
+		<action name="filterCriteriaList_*" method="{1}" class="filterCriteriaListAction">
+            <result name="success">/WEB-INF/pages/reporting/ftr/filtercriteria/mnt/FilterCriteriaList.jsp</result>
+            <result name="successMnt">/WEB-INF/pages/reporting/ftr/filtercriteria/mnt/FilterCriteriaMaint.jsp</result>
+            <result name="grid" type="json"> 
+		    	<param name="ignoreHierarchy">false</param> 
+		    </result>           
+		    <result name="error" type="json">
+	     		<param name="ignoreHierarchy">false</param> 
+	    	</result>
+		             
+		</action>		
+    </package>
+    
+    <package name="template" namespace="/path/template" extends="path-default">
+    </package>
+    
+    <package name="colTemplateMaintReport" namespace="/path/colTemplateMaintReport" extends="path-default">
+		<action name="colTemplateMaintReport" class="columnTemplateAction">
+			<result name="success">/WEB-INF/pages/reporting/ftr/columntemplate/maint/ColumnTemplateAll.jsp
+			</result>
+		</action>
+	
+		<action name="findAllCriteria" class="columnTemplateAction" method="findAllCriteria">
+			<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		</action>
+		
+		<action name="checkColTempCalcType" class="columnTemplateAction" method="checkColTempCalcType">
+			<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		</action>
+		
+		<action name="applyDivisionDependency"  class="columnTemplateAction" method="applyDivisionDependency">
+	  		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		 </action>
+		<action name="applyBranchDependency"  class="columnTemplateAction" method="applyBranchDependency">
+	  		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		 </action>
+		<action name="applyCurrDependency" class="columnTemplateAction" method="applyCurrDependency">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>
+		</action>
+		
+		<action name="deleteExpressions" class="columnTemplateAction" method="deleteExpressions">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<action name="DepartmentsLkp" class="columnTemplateAction" method="fillLookupFromToDept">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<action name="UnitsLkp" class="columnTemplateAction" method="fillLookupFromToUnit">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<!-- Branch Lookup -->
+		<action name="branchLkp" class="columnTemplateAction" method="fillLookupFromToBranch">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<action name="branchLookUpGrid" class="columnTemplateAction"
+			method="loadLookUpFromToBranchGrid">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="divisionDetailsLookUpGrid"  class="columnTemplateAction" method="loadLookUpDivisonGrid">
+	  		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		 </action>
+		
+		<action name="countOfColumnTemplate" class="columnTemplateAction"
+			method="countOfColumnTemplate">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<action name="findColumnTemplateDetailsCount" class="columnTemplateAction"
+			method="findColumnTemplateDetailsCount">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="findColumnTemplateDetailType" class="columnTemplateAction"
+			method="findColumnTemplateDetailType">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<!-- currency Lookup -->
+				<!-- Branch Lookup -->
+		<action name="currencyLkp" class="columnTemplateAction" method="fillLookupFromToCurrency">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<action name="currencyLookUpGrid" class="columnTemplateAction"
+			method="loadLookUpFromToCurrencyGrid">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<!-- currency Lookup -->
+		
+		<action name="deptDetailsLookUpGrid" class="columnTemplateAction"
+			method="loadLookUpFromToDeptGrid">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="unitDetailsLookUpGrid" class="columnTemplateAction"
+			method="loadLookUpFromToUnitGrid">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="expressionDependency" class="columnTemplateAction"
+			method="expressionDependency">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+	<action name="lineOrValueChange" class="columnTemplateAction"
+			method="lineOrValueChange">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="deleteColumnTemplateDetail" method="deleteColumnTemplateDetail" class="columnTemplateAction">
+
+		</action>
+		<action name="openLine" method="openLine" class="columnTemplateSearchGridAction">
+			<result name="success">/WEB-INF/pages/reporting/ftr/columntemplate/maint/columnTemplateDet.jsp
+			</result>
+		</action>
+		
+		<action name="applyUnitDependency" method="applyUnitDependency" class="columnTemplateAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="fillDetailsGrid" method="fillDetailsGrid" class="columnTemplateAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="applyDeptDependency"  class="columnTemplateAction" method="applyDeptDependency">
+	  		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		  	</result> 
+		</action>
+		
+		<action name="fillLookupDivision" method="fillLookupDivision" class="columnTemplateAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<action name="selectTemplate" method="selectTemplate" class="columnTemplateAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			 <result name="successMnt">/WEB-INF/pages/reporting/ftr/columntemplate/maint/ColTemplateMaint.jsp</result>
+		</action>
+		<action name="templGridUrl" method="templGridUrl"
+			class="columnTemplateDetailsAction">
+			<result name="grid" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<action name="loadGrid" method="loadGrid" class="columnTemplateSearchGridAction">
+			<result name="grid" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<action name="findSingleColTempl" method="findSingleColTempl"
+			class="columnTemplateAction">
+			<result name="success">/WEB-INF/pages/reporting/ftr/columntemplate/list/ColumnTemplateAll.jsp
+			</result>
+		</action>
+		<action name="editColumnTemplate" method="editColumnTemplate"
+			class="columnTemplateAction">
+			<result name="success">/WEB-INF/pages/reporting/ftr/columntemplate/list/ColumnTemplateEditDetails.jsp
+			</result>
+		</action>
+		<action name="addColumnTemplateLine" method="addColumnTemplateLine"
+			class="columnTemplateAction">
+			<result name="success">/WEB-INF/pages/reporting/ftr/columntemplate/list/ColumnTemplateEditDetails.jsp
+			</result>
+		</action>
+		<action name="createSession" class="columnTemplateAction" method="createSession">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>		
+	   <action name="saveTemplate" method="saveTemplate" class="columnTemplateAction">
+	   		<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+			<result name="error" type="json">
+	     		<param name="ignoreHierarchy">false</param> 
+	    	</result>
+	   </action>
+	   	   <action name="deleteColumnTemplate" method="deleteColumnTemplate" class="columnTemplateAction">
+	   		<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>
+	   	<action name="deleteExpression" method="deleteExpression" class="columnTemplateAction">
+	   		<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>
+	   	<action name="col_*" method="{1}" class="columnTemplateAction">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>   
+		</action>
+		
+		<action name="regionLkp" method="fillLookupRegion" class="columnTemplateAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="regionLookUpGrid"  class="columnTemplateAction" method="loadLookUpRegionGrid">
+	  		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		</action>
+		
+		<action name="openCriteria" method="openCriteria" class="columnTemplateAction">
+        	 <result name="success">/WEB-INF/pages/reporting/ftr/columntemplate/maint/CriteriaList.jsp</result>
+		</action>
+		
+		<action name="checkIfEmpty" method="checkIfEmpty" class="columnTemplateAction">
+	   		<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	    </action>
+	    
+	    <action name="reorganizeLines" class="columnTemplateAction" method="reorganizeLines">
+			<result name="orgLines">/WEB-INF/pages/reporting/ftr/columntemplate/maint/OrganizeDialog.jsp
+			</result>
+		</action>
+		
+		<action name="reorganizeLinesOrder" class="columnTemplateAction" method="reorganizeLinesOrder">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="checkIfExprLine" class="columnTemplateAction" method="checkIfExprLine">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>
+	   
+	   <action name="crtGridUrl" class="columnTemplateAction" method="loadCriteriaList">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="validateCrt" class="columnTemplateAction" method="validateCrt">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="filterCrtLkp" class="columnTemplateAction" method="fillLookUpFilterCrt">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="applyFilterCrtDependency" class="columnTemplateAction" method="applyFilterCrtDependency">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="filterCrtDetLkp" class="columnTemplateAction" method="fillLookUpFilterCrtDet">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="applyFilterCrtDetDependency" class="columnTemplateAction" method="applyFilterCrtDetDependency">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="openCrt" class="columnTemplateCriteria" method="openCrt">
+		<result name="success">/WEB-INF/pages/reporting/ftr/columntemplate/maint/CriteriaFrm.jsp
+			</result>
+		</action>
+		
+		<action name="deleteCrt" class="columnTemplateCriteria" method="deleteCrt">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>
+	   
+	   <action name="generateSubLnNbCrt" class="columnTemplateAction" method="generateSubLnNbCrt">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>
+	   
+	   <action name="applyAudit" method="applyAudit" class="columnTemplateAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="error" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="createLikeUrl" method="createLikeUrl" class="columnTemplateAction">
+			<result name="success">/WEB-INF/pages/reporting/ftr/columntemplate/maint/CreateLikeFrm.jsp</result>
+		</action>
+		
+		<action name="saveCreateLike" method="saveCreateLike" class="columnTemplateAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="error" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="applyRegionDependency" class="columnTemplateAction" method="applyRegionDependency">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+	</package>
+	<package name="templateExpression" namespace="/path/templateExpression" extends="path-default">
+    	
+    	<action name="openExpression" method="openExpression" class="templateExpressionAction">
+        	 <result name="success">/WEB-INF/pages/reporting/ftr/templateExpression/TemplateExpression.jsp</result>
+		</action>
+    		
+		<action name="loadExprList" class="templateExpressionAction" method="loadExprList">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="expressionDependency"  class="templateExpressionAction"  method="expressionDependency" >
+        	 <result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+		</action>
+		
+		<action name="lineOrValueChange" class="templateExpressionAction"  method="lineOrValueChange">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="addExpression" class="templateExpressionAction"  method="addExpression">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="selectOperatorsUrl" class="templateExpressionAction" method="selectOperatorsUrl">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   	</action>
+	   
+	</package>
+    <package name="templateReport" namespace="/path/templateReport" extends="path-default">   		
+   		<action name="templateReport" class="templateReportAction">   		
+	         <result name="success">/WEB-INF/pages/reporting/ftr/template/list/TemplateReport.jsp</result>
+    	</action>    	
+    	<action name="jasperReport" class="templateReportAction" method="generateReport">   
+    	</action>    	
+    </package>
+    
+    <package name="templateMaintReport" namespace="/path/templateMaintReport" extends="path-default">
+         <action name="templMaint_*" method="{1}" class="templateMaintReportAction">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>   
+	    </action>
+  		<action name="templateMaintReport" class="templateMaintReportAction">   		
+         	<result name="success">/WEB-INF/pages/reporting/ftr/template/maint/TemplateMaintReport.jsp</result>
+   		</action> 
+   		
+  		<action name="submitAll" method="submitAll" class="templateMaintReportAction">   		
+         	<result name="success">/WEB-INF/pages/reporting/ftr/template/maint/TemplateMaintReport.jsp</result>
+   		</action> 
+   		
+   		
+		<action name="submitAjax" method="submitAjax" class="templateMaintRepLinesAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="successTemplGrid">/WEB-INF/pages/reporting/ftr/template/maint/TemplateList.jsp
+			</result>
+			<result name="successMnt">/WEB-INF/pages/reporting/ftr/template/maint/TemplateMaint.jsp
+			</result>
+		</action>
+   		   
+		<action name="openTemplate" method="openTemplate" class="templateMaintReportAction">
+        	 <result name="success">/WEB-INF/pages/reporting/ftr/template/maint/TemplateList.jsp</result>
+		</action>	
+		
+		<action name="openLine" method="openLine" class="templateMaintRepLinesAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+			
+		<action name="validateLine" method="validateLine" class="templateMaintReportAction">
+        	 <result name="success" type="json">
+         		<param name="ignoreHierarchy">false</param>
+         	</result>
+         	<result name="error" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>	
+		
+		<action name="deleteLine" method="deleteLine" class="templateMaintReportAction">
+        	<result name="success" type="json">
+         		<param name="ignoreHierarchy">false</param>
+         	</result>
+		</action>	
+		
+		<action name="openGLList" method="openGLList" class="templateMaintReportAction">
+        	 <result name="success">/WEB-INF/pages/reporting/ftr/template/maint/GLList.jsp</result>
+		</action>	
+		
+		<action name="openGL" method="openGL" class="TemplateMaintGLAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="refreshGlForm" method="refreshGlForm" class="TemplateMaintGLAction">
+			<result name="successGLFrm">/WEB-INF/pages/reporting/ftr/template/maint/GLFrm.jsp			
+			</result>
+		</action>
+		
+		 <action name="validateGL" method="validateGL" class="templateMaintReportAction">
+        	 <result name="success" type="json">
+         		<param name="ignoreHierarchy">false</param>
+         	</result>
+         	<result name="error" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+	   <action name="glGridUrl" class="templateMaintReportAction" method="loadGLList">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>
+		</action>
+		
+		<action name="templGridUrl" class="templateMaintReportAction" method="loadTemplGrid">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>
+		</action>
+		
+		
+		<action name="templLinesGridUrl" class="templateMaintReportAction" method="loadTemplLinesGrid">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>
+		</action>
+		
+		<action name="checkTemplCode" class="templateMaintReportAction" method="checkTemplCode">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>
+		</action>
+		
+		<action name="applyFromGLDependency" class="templateMaintReportAction" method="applyFromGLDependency">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>
+		</action>
+		 
+		 	    
+	  	<action name="currencyDetailsLookUpGrid" class="templateMaintReportAction" method="loadLookUpCurrencyGrid">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>
+	    </action>
+		 
+		<action name="fromGLLkp"  class="templateMaintReportAction" method="fillLookUpFromGL">
+		  	<result name="success" type="json">
+		  		<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		 </action>
+		 
+	  	<action name="fromGLDetailsLookUpGrid" class="templateMaintReportAction" method="loadLookUpFromGLGrid">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>
+	    </action>
+	    
+    
+    	<action name="companiesLkp"  class="templateMaintReportAction" method="fillLookupCompanies">
+	  	<result name="success" type="json">
+	  		<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		 </action>
+		  	
+	  	<action name="compDetailsLookUpGrid" class="templateMaintReportAction" method="loadLookUpCompGrid">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>
+	    </action>
+    
+    	<action name="applyCompaniesDependency" class="templateMaintReportAction" method="applyCompaniesDependency">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>
+		</action>
+		
+		<action name="branchLkp"  class="templateMaintReportAction" method="fillLookupBranch">
+	  		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		 </action>
+		 
+		<action name="branchDetailsLookUpGrid"  class="templateMaintReportAction" method="loadLookUpBranchGrid">
+	  		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		 </action>
+		 
+		<action name="applyBranchDependency"  class="templateMaintReportAction" method="applyBranchDependency">
+	  		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		 </action>
+		 
+		<action name="divisionLkp"  class="templateMaintReportAction" method="fillLookupDivision">
+	  		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		 </action>
+		 
+		<action name="divisionDetailsLookUpGrid"  class="templateMaintReportAction" method="loadLookUpDivisonGrid">
+	  		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		 </action>
+		 
+		<action name="applyDivisionDependency"  class="templateMaintReportAction" method="applyDivisionDependency">
+	  		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		 </action>
+		 
+		<action name="DepartmentsLkp"  class="templateMaintReportAction" method="fillLookupDept">
+	  		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		 </action>
+		 
+		<action name="deptDetailsLookUpGrid"  class="templateMaintReportAction" method="loadLookUpDeptGrid">
+	  		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		 </action>
+		 
+		<action name="applyDeptDependency"  class="templateMaintReportAction" method="applyDeptDependency">
+	  		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		 </action>
+		 
+		<action name="accountLkp"  class="templateMaintReportAction" method="fillLookupAcc">
+	  		<result name="success" type="json">
+	  			<param name="ignoreHierarchy">false</param> 	
+		  	</result>
+		 </action>
+		 
+		<action name="deleteGL" method="deleteGL" class="TemplateMaintGLAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		 
+		<action name="openExpression" method="openExpression" class="templateMaintReportAction">
+        	 <result name="success">/WEB-INF/pages/reporting/ftr/template/maint/ExpressionList.jsp</result>
+		</action>		 
+		<action name="openExprList" method="openExprList" class="templateMaintReportAction">
+        	 <result name="success">/WEB-INF/pages/reporting/ftr/template/maint/ExpressionList.jsp</result>
+		</action>	
+		
+		
+	   <action name="exprGridUrl" class="templateMaintReportAction" method="loadExprList">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>	
+
+	   <action name="selectOperatorsUrl" class="templateMaintReportAction" method="selectOperatorsUrl">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>	 
+	   
+	   <action name="checkIfExprLine" class="templateMaintReportAction" method="checkIfExprLine">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>	 
+	   <action name="saveTemplDetails" class="templateMaintReportAction" method="saveTemplDetails">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>	
+	    
+	    
+		 <action name="validateExpr"  class="templateMaintReportAction"  method="validateExpr" >
+        	 <result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+		</action>
+		
+	   <action name="saveAll" class="templateMaintReportAction" method="saveAll">
+	   		<interceptor-ref name="fileUpload">
+			</interceptor-ref>
+			<interceptor-ref name="pathDefaultStack"/>
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+			 <result name="error" type="json">
+	     		<param name="ignoreHierarchy">false</param> 
+	    	</result>
+	   </action>
+	   	 
+	   <action name="generateSubLnNbGL" class="templateMaintReportAction" method="generateSubLnNbGL">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>
+	   	 
+	   <action name="genExpLineLkp" class="templateMaintReportAction" method="genExpLineLkp">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>	
+	    
+	   <action name="genExpLineLkpColl" class="templateMaintReportAction" method="genExpLineLkpColl">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>	 
+	   
+	   <action name="crtGridUrl" class="templateMaintReportAction" method="loadCriteriaList">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>	 
+	   
+	   <action name="filterCrtLkp" class="templateMaintReportAction" method="fillLookUpFilterCrt">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>	 
+
+ 		<action name="filterCrtLookUpGrid" class="templateMaintReportAction" method="loadFilterCrtLookUpGrid">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>
+	    </action>
+	    
+ 		<action name="filterCrtDetLkp" class="templateMaintReportAction" method="fillLookUpFilterCrtDet">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>
+	    </action>
+ 		<action name="filterCrtDetLookUpGrid" class="templateMaintReportAction" method="loadFilterCrtDetLookUpGrid">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>
+	    </action>
+	    
+		<action name="openCriteria" method="openCriteria" class="templateMaintReportAction">
+        	 <result name="success">/WEB-INF/pages/reporting/ftr/template/maint/CriteriaList.jsp</result>
+		</action>	
+
+ 		<action name="openCrt" class="templateMaintCriteriaAction"
+			method="openCrt">
+			<result name="success">/WEB-INF/pages/reporting/ftr/template/maint/CriteriaFrm.jsp
+			</result>
+		</action>
+
+ 	 
+	   <action name="generateSubLnNbCrt" class="templateMaintReportAction" method="generateSubLnNbCrt">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>
+	   
+	   <action name="applyFilterCrtDependency" class="templateMaintReportAction" method="applyFilterCrtDependency">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>
+
+	   <action name="validateCrt" class="templateMaintReportAction" method="validateCrt">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+			<result name="error" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+	   </action>
+
+	   <action name="deleteCrt" class="templateMaintCriteriaAction"
+			method="deleteCrt">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+	   
+	   <action name="applyFilterCrtDetDependency" class="templateMaintReportAction" method="applyFilterCrtDetDependency">
+			<result name="success" type="json"> 
+		 	  <param name="ignoreHierarchy">false</param> 
+			</result>
+	   </action>
+	   
+	   
+	   <action name="lineOrValueChange" class="templateMaintReportAction"  method="lineOrValueChange">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="relatedReportsDialogUrl" class="templateMaintReportAction"
+			method="relatedReportsDialogUrl">
+			<result name="rltRep">/WEB-INF/pages/reporting/ftr/template/maint/RelatedReportsList.jsp
+			</result>
+		</action>
+
+		<action name="reorganizeLines" class="templateMaintReportAction" 	method="reorganizeLines">
+			<result name="orgLines">/WEB-INF/pages/reporting/ftr/template/maint/OrganizeDialog.jsp
+			</result>
+		</action>
+		
+		<action name="reorganizeLinesOrder" class="templateMaintReportAction" method="reorganizeLinesOrder">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		
+		<action name="relatedRepGridUrl" class="templateMaintReportAction"
+			method="relatedRepGridUrl">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="saveRelatedReports" class="templateMaintReportAction"
+			method="saveRelatedReports">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="deleteRelRep" class="templateMaintReportAction"
+			method="deleteRelRep">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+
+		
+		<action name="fcrDependency" method="fcrDependency" class="templateMaintReportAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+	   <action name="rememberLine" method="rememberLine" class="templateMaintReportAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="selectAccount" class="templateMaintReportAction" 	method="selectAccount">
+			<result name="selAcc">/WEB-INF/pages/reporting/ftr/template/maint/SelectAccount.jsp
+			</result>
+		</action>
+	   
+	   <action name="selAccGridUrl" class="templateMaintReportAction"
+			method="selAccGridUrl">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="saveNeededAccounts" class="templateMaintReportAction"
+			method="saveNeededAccounts">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>	
+		
+		<action name="selectAllAcc" class="templateMaintReportAction"
+			method="selectAllAcc">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>	
+		
+		<action name="deSelectAllAcc" class="templateMaintReportAction"
+			method="deSelectAllAcc">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>	
+		
+		<action name="deleteAllTemplateLines" class="templateMaintReportAction"
+			method="deleteAllTemplateLines">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>	
+		
+		<action name="checkOrderInOtherTemplate" class="templateMaintReportAction"
+			method="checkOrderInOtherTemplate">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>	
+		
+		
+		<action name="emptyTmplLinesFrm" class="templateMaintReportAction"
+			method="emptyTmplLinesFrm">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>	
+		
+		<action name="openMismatch" method="openMismatch"
+			class="templateMismatchAction">
+			<result name="success">/WEB-INF/pages/reporting/ftr/template/maint/MismatchReportList.jsp
+			</result>
+		</action>
+		
+		<action name="loadMismatchGrid" method="loadMismatchGrid"
+			class="templateMismatchAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="refreshMismatchForm" method="refreshMismatchForm"
+			class="templateMismatchAction">
+			<result name="refreshMismatchForm">/WEB-INF/pages/reporting/ftr/template/maint/MismatchReportFrm.jsp
+			</result>
+		</action>
+		
+		
+		<action name="existingTemplatesLookup" method="existingTemplatesLookup"
+			class="templateMismatchAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="loadTemplatesLookupGrid" method="loadTemplatesLookupGrid"
+			class="templateMaintReportAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="applyExistingTemplatesDependency" method="applyExistingTemplatesDependency"
+			class="templateMismatchAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="existingTemplateLinesLookup" method="existingTemplateLinesLookup"
+			class="templateMaintReportAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="loadTemplatesLinesLookupGrid" method="loadTemplatesLinesLookupGrid"
+			class="templateMaintReportAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="applyExistingTemplateLinesDependency" method="applyExistingTemplateLinesDependency"
+			class="templateMismatchAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="validateMis" method="validateMis" class="templateMismatchAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+	
+		<action name="deleteMismatch" method="deleteMismatch" class="templateMismatchAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="openMismatchJson" method="openMismatchJson" class="templateMismatchAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="createLikeUrl" method="createLikeUrl" class="templateMaintReportAction">
+			<result name="success">/WEB-INF/pages/reporting/ftr/template/maint/CreateLikeFrm.jsp</result>
+		</action>
+		
+		<action name="saveCreateLike" method="saveCreateLike" class="templateMaintReportAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="error" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="applyAudit" method="applyAudit" class="templateMaintReportAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="error" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+	
+		
+		<action name="applyCalcTypeDependency" method="applyCalcTypeDependency" class="templateMaintReportAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="error" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>	
+		
+		<action name="checkIfCalcTypeRateValue" method="checkIfCalcTypeRateValue" class="templateMaintReportAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="error" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="checkCriteriaCurrencyIncluded" method="checkCriteriaCurrencyIncluded" class="templateMaintReportAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="error" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+   </package>
+   
+   
+    <package name="templateProcess" namespace="/path/templateProcess" extends="path-default">
+  		<action name="templateProcess" class="templateProcessAction">
+        	 <result name="success">/WEB-INF/pages/reporting/ftr/templateProcess/maint/TemplateProcess.jsp</result>
+		</action>
+		
+		<action name="proc_*" method="{1}" class="templateProcessAction">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>       
+		</action>	
+   	</package>
+   	
+    <package name="fcrRep" namespace="/path/fcrRep" extends="path-default">
+  		<action name="fcr_*" method="{1}" class="fcrAction">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result> 
+			 <result name="successMnt">/WEB-INF/pages/reporting/ftr/fcr/FcrMaint.jsp</result>    
+			 <result name="error" type="json">
+	     		<param name="ignoreHierarchy">false</param> 
+	    	</result>
+	    	<result name="successLst">/WEB-INF/pages/reporting/ftr/fcr/FcrList.jsp</result>  
+		</action>	
+   	</package>
+
+	<package name="foldersMaint" namespace="/path/foldersMaint" extends="path-default">
+  		<action name="foldersMaint" class="foldersAction" method="loadFoldersMaint">
+        	 <result name="success">/WEB-INF/pages/reporting/ftr/folders/FoldersList.jsp</result>
+		</action>
+		
+		<action name="folders_*" method="{1}" class="foldersAction">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>  
+			<result name="successMnt">/WEB-INF/pages/reporting/ftr/folders/FoldersMaint.jsp</result>    
+			<result name="error" type="json">
+	     		<param name="ignoreHierarchy">false</param> 
+	    	</result> 
+		</action>	
+   	</package>
+    
+	<package name="connection" namespace="/path/connection" extends="path-default">
+  		<action name="connection_*" method="{1}" class="connectionAction">
+        	 <result name="success">/WEB-INF/pages/reporting/connection/Connection.jsp</result>
+        	    <result name="grid" type="json"> 
+		    		<param name="ignoreHierarchy">false</param> 
+		    </result> 
+		    
+		     <result name="successConDetail">/WEB-INF/pages/reporting/connection/ConnectionDetail.jsp</result> 
+		</action>
+   	</package>
+   	
+   	<package name="appConnection" namespace="/path/appConnection" extends="path-default">
+  		<action name="appConnection" class="appConnectionAction">
+       	  <result name="success">/WEB-INF/pages/reporting/connection/AppConnection.jsp</result>
+		</action>
+	
+		<action name="appConnection_*" method="{1}" class="appConnectionAction">
+	      	     <result name="success" type="json"> 
+		   		<param name="ignoreHierarchy">false</param> 
+	         </result>
+	         <result name="successAppConDetail">/WEB-INF/pages/reporting/connection/AppConnectionDetail.jsp</result> 
+		</action>
+	</package>	
+   	
+
+	<package name="entitiesMaint" namespace="/path/entitiesMaint" extends="path-default">
+  		<action name="entitiesMaint" class="entitiesAction">
+		    <result name="success">/WEB-INF/pages/reporting/designer/entities/entitiesMaint.jsp</result>
+		</action>
+		
+		
+		<action name="entities_*" method="{1}" class="entitiesAction">
+			<result name="success" type="json"> 
+			   <param name="ignoreHierarchy">false</param> 
+			</result>   
+			<result name="successFields">/WEB-INF/pages/reporting/designer/entities/fieldLookupList.jsp</result>
+		    <result name="error" type="json">
+	     		<param name="ignoreHierarchy">false</param> 
+	    	</result>
+	    	<result name="successMnt">/WEB-INF/pages/reporting/designer/entities/EntityMaint.jsp</result>
+		</action>	
+   	</package>
+	
+	<package name="cbParam" namespace="/path/cbParam" extends="path-default">
+		<action name="cbParamList_*" method="{1}" class="cbParamListAction">
+            <result name="success">/WEB-INF/pages/reporting/ftr/cbparam/CbParamList.jsp</result>
+            <result name="successJSON" type="json"> 
+		    	<param name="ignoreHierarchy">false</param> 
+		    </result>           
+		    <result name="error" type="json">
+	     		<param name="ignoreHierarchy">false</param> 
+	    	</result> 
+		</action>		
+    </package>
+    
+<package name="controlRecord" namespace="/path/controlRecord"
+		extends="path-default">
+		<action name="controlRecordAction_*" method="{1}"
+			class="controlRecordAction">
+			<result name="successMaint">/WEB-INF/pages/reporting/ftr/controlRecord/ControlRecordMaint.jsp
+			</result>
+			<result name="successFrm">/WEB-INF/pages/reporting/ftr/controlRecord/ControlRecordMaintFrm.jsp
+			</result>
+			<result name="error" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="templateHeader" namespace="/path/templateHeader"
+		extends="path-default">
+		<action name="templateHeaderAction_*" method="{1}"
+			class="templateHeaderAction">
+			<result name="success">/WEB-INF/pages/reporting/ftr/templateheader/TemplateHeaderList.jsp
+			</result>
+			<result name="json" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="successMaint">/WEB-INF/pages/reporting/ftr/templateheader/TemplateHeaderList.jsp
+			</result>
+			<result name="successFrm">/WEB-INF/pages/reporting/ftr/templateheader/TemplateHeaderFrm.jsp
+			</result>
+			<result name="error" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="timeBuckets" namespace="/path/timeBuckets" extends="path-default">	
+		<action name="timeBucketsAction_*" method="{1}" class="timeBucketsAction">
+			
+			<result name="success">/WEB-INF/pages/reporting/ftr/timeBuckets/TimeBucketsList.jsp</result>
+			<result name="json" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			
+            <result name="successFrm">/WEB-INF/pages/reporting/ftr/timeBuckets/TimeBucketsMaint.jsp</result>
+		    <result name="error" type="json">
+	     		<param name="ignoreHierarchy">false</param> 
+	    	</result> 
+	    	     
+		</action>		
+    </package>
+</struts>

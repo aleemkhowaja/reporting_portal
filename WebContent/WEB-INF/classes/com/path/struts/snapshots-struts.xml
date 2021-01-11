@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="snapshotParameter" namespace="/path/snapshotParameter" extends="path-default">
+		<action name="SnapshotParameterListAction_*" class="snapshotParameterListAction" method="{1}">
+				<result name="success" type="json"> 
+					<param name="ignoreHierarchy">false</param> 
+				</result>
+				<result name="successModifiedColumns">/WEB-INF/pages/reporting/ftr/snapshots/SnapshotModifiedCol.jsp</result>
+				<result name="successDrilldownColumns">/WEB-INF/pages/reporting/ftr/snapshots/SnapshotDrilldownCol.jsp</result>
+				<result name="formulaDialog">/WEB-INF/pages/reporting/ftr/snapshots/FormulaSnParameter.jsp</result>
+		</action>
+		<action name="SnapshotParameterMaintAction_*" class="snapshotParameterMaintAction" method="{1}">
+				<result name="snapshotParameterList">/WEB-INF/pages/reporting/ftr/snapshots/SnapshotParameterList.jsp</result>
+				<result name="success">/WEB-INF/pages/reporting/ftr/snapshots/SnapshotParameterMaint.jsp</result>
+				<result name="reloadDivGrid">/WEB-INF/pages/reporting/ftr/snapshots/SnapshotParameterListGrid.jsp</result>
+				<result name="successJson" type="json">
+					<param name="ignoreHierarchy">false</param>
+				</result>
+				<result name="error" type="json">
+					<param name="ignoreHierarchy">false</param>
+				</result>
+				<result name="saveSnpSht">/WEB-INF/pages/reporting/reports/SaveSnapshot.jsp</result>
+		</action>
+		<action name="SnapshotModifiedColumnAction_*" class="snapshotModifiedColumnAction" method="{1}">
+				<result name="snapshotParameterList">/WEB-INF/pages/reporting/ftr/snapshots/SnapshotParameterList.jsp</result>
+				<result name="success">/WEB-INF/pages/reporting/ftr/snapshots/SnapshotParameterMaint.jsp</result>
+				<result name="successJson" type="json">
+					<param name="ignoreHierarchy">false</param>
+				</result>
+		</action>
+		<action name="SnapshotDrilldownColumnAction_*" class="snapshotDrilldownColumnAction" method="{1}">
+				<result name="snapshotParameterList">/WEB-INF/pages/reporting/ftr/snapshots/SnapshotParameterList.jsp</result>
+				<result name="success">/WEB-INF/pages/reporting/ftr/snapshots/SnapshotParameterMaint.jsp</result>
+				<result name="successJson" type="json">
+					<param name="ignoreHierarchy">false</param>
+				</result>
+		</action>
+		
+		
+		<action name="SnapshotInformationListAction_*" class="snapshotInformationListAction" method="{1}">
+				<result name="success" type="json"> 
+					<param name="ignoreHierarchy">false</param> 
+				</result>
+				<result name="error" type="json">
+	     			<param name="ignoreHierarchy">false</param> 
+	    		</result>
+				<result name="reloadDivGrid">/WEB-INF/pages/reporting/ftr/snapshots/SnapshotInformationListGrid.jsp</result>
+		</action>
+		<action name="SnapshotInformationMaintAction_*" class="snapshotInformationMaintAction" method="{1}">
+				<result name="snapshotInformationList">/WEB-INF/pages/reporting/ftr/snapshots/SnapshotInformationList.jsp</result>
+				<result name="success">/WEB-INF/pages/reporting/ftr/snapshots/SnapshotInformationMaint.jsp</result>
+				<result name="successJson" type="json">
+					<param name="ignoreHierarchy">false</param>
+				</result>
+				<result name="error" type="json">
+					<param name="ignoreHierarchy">false</param>
+				</result>
+				<result name="viewSnapshot">/WEB-INF/pages/reporting/ftr/snapshots/ViewSnapshot.jsp</result>
+				<result name="successLoadSnp" type="stream">
+				 	 <param name="contentType">application/octet-stream</param>
+				  	 <param name="contentDisposition">attachment;filename="${filename}"</param>
+				 	 <param name="bufferSize">1024</param>			
+			  	  	 <param name="inputName">fileStream</param>
+				</result>
+		</action>
+	</package>
+</struts>

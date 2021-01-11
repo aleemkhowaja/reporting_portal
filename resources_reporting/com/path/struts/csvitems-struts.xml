@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="csvItems" namespace="/path/csvItems" extends="path-default">
+		<action name="CsvItemsListAction_*" class="csvItemsListAction" method="{1}">
+				<result name="success" type="json"> 
+					<param name="ignoreHierarchy">false</param> 
+				</result>
+		</action>
+		<action name="CsvItemsMaintAction_*" class="csvItemsMaintAction" method="{1}">
+				<result name="csvItemsList">/WEB-INF/pages/reporting/ftr/csvitems/CsvItemsList.jsp</result>
+				<result name="csvItemsMaint">/WEB-INF/pages/reporting/ftr/csvitems/CsvItemsMaint.jsp</result>
+				
+				<result name="success" type="json"> 
+					<param name="ignoreHierarchy">false</param> 
+				</result>
+		</action>
+
+	</package>
+</struts>

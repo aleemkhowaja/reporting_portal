@@ -1,0 +1,15 @@
+<%@include file="/WEB-INF/pages/common/Encoding.jsp"%>
+<%@include file="/WEB-INF/pages/common/TLDImport.jsp"%>
+<%@page import="com.path.lib.log.PathSystemMonitor"%>
+<ps:form id="tech_det_log_level_change_form">
+	<br/>
+	<div>
+		<ps:radio list="#{'SEVERE':'log_level_error_key','ALL':'log_level_all_key'}"
+			id="tech_det_log_level_choice"
+			name="currLogLevel" />
+	</div>
+	<br/>
+	<div>
+	<%=PathSystemMonitor.monitorSystemIndicators().replace("\r\n", "<br/>")%>
+	</div>
+</ps:form>

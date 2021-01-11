@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<bean id="schedulerAction"
+		class="com.path.actions.reporting.ftr.scheduler.SchedulerAction"
+		scope="prototype" parent="baseAction">
+		<property name="commonLookupBO" ref="commonLookupBO"></property>
+		<property name="schedulerBO" ref="schedulerBO"></property>
+		<property name="designerBO" ref="designerBO"></property>
+		<property name="commonRepFuncBO" ref="commonRepFuncBO"></property>
+		<property name="usrBO" ref="usrBO"></property>
+		<property name="fcrBO" ref="fcrBO"></property>
+		<property name="commonReportingBO" ref="commonReportingBO"></property>
+		<property name="timerScheduleBO" ref="timerScheduleBO"></property>
+	</bean>
+	
+	<bean id="schedulerEngineAction"
+		class="com.path.actions.reporting.ftr.scheduler.SchedulerEngineAction"
+		scope="prototype" parent="baseAction">
+		<property name="schedulerBO" ref="schedulerBO"></property>
+		<property name="snapShotBO" ref="snapShotBO"></property>
+	</bean>
+	
+	<bean id="schedulerMailLogDetailsAction"
+		class="com.path.actions.reporting.ftr.scheduler.SchedulerMailLogDetailsAction"
+		scope="prototype" parent="baseAction">
+		<property name="schedulerBO" ref="schedulerBO"></property>
+	</bean>
+</beans>

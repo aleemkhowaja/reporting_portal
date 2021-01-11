@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="reportsMismatch" namespace="/path/reportsMismatch" extends="path-default">
+		<action name="ReportsMismatchListAction_*" class="reportsMismatchListAction" method="{1}">
+				<result name="success" type="json"> 
+					<param name="ignoreHierarchy">false</param> 
+				</result>
+				 <result name="error" type="json">
+	     		<param name="ignoreHierarchy">false</param> 
+	    		</result>
+				<result name="criteriaColumn">/WEB-INF/pages/reporting/ftr/reportsmismatch/ReportsMismatchCrtColList.jsp</result>
+				<result name="reloadDivMis">/WEB-INF/pages/reporting/ftr/reportsmismatch/ReportsMismatchListGrid.jsp</result>
+				<result name="relatedCrt">/WEB-INF/pages/reporting/ftr/reportsmismatch/ReportsMismatchRelatedCrtList.jsp</result>			
+		</action>
+		<action name="ReportsMismatchMaintAction_*" class="reportsMismatchMaintAction" method="{1}">
+				<result name="reportsMismatchList">/WEB-INF/pages/reporting/ftr/reportsmismatch/ReportsMismatchList.jsp</result>
+				<result name="success">/WEB-INF/pages/reporting/ftr/reportsmismatch/ReportsMismatchMaint.jsp</result>
+				<result name="mismatchsGrid">/WEB-INF/pages/reporting/ftr/reportsmismatch/RelatedReportsMismatch.jsp</result>
+		</action>
+		
+		<action name="repMismProctAction_*" class="reportsMismatchProcessAction" method="{1}">
+				<result name="repMisProcess">/WEB-INF/pages/reporting/ftr/reportsmismatch/ReportsMismatchProcess.jsp</result>
+				<result name="repMisProcessMaint">/WEB-INF/pages/reporting/ftr/reportsmismatch/ReportsMismatchProcessMaint.jsp</result>
+				<result name="repMisProcessGrid">/WEB-INF/pages/reporting/ftr/reportsmismatch/ReportsMismatchProcessGrid.jsp</result>
+				<result name="success" type="json"> 
+					<param name="ignoreHierarchy">false</param> 
+				</result>
+		</action>
+		
+	</package>
+	<package name="common" namespace="/path/ftrCommon" extends="path-default">
+		<action name="FtrCommonAction_*" class="ftrCommonAction" method="{1}">
+			<result name="success" type="json"> 
+					<param name="ignoreHierarchy">false</param> 
+				</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="reportViewer" namespace="/path/reportViewer"
+		extends="path-default">
+		<action name="reportViewer_*" method="{1}" class="reportViewerAction">
+			<result name="reportViewer">/WEB-INF/pages/reporting/reportviewer/ReportViewer.jsp</result>
+			<result name="centerViewer">/WEB-INF/pages/reporting/reportviewer/CenterViewer.jsp</result>
+			<result name="northViewer">/WEB-INF/pages/reporting/reportviewer/NorthViewer.jsp</result>
+			<result name="westViewer">/WEB-INF/pages/reporting/reportviewer/WestViewer.jsp</result>
+		</action>
+	</package>
+</struts>

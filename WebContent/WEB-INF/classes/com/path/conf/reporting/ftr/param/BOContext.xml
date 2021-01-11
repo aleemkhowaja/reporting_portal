@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="filterCriteriaBO" factory-bean="reportingServiceBeanFactory"
+		factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName"
+			value="com.path.bo.reporting.ftr.filterCriteria.impl.FilterCriteriaBOImpl" />
+		<constructor-arg name="interfaceName"
+			value="com.path.bo.reporting.ftr.filterCriteria.FilterCriteriaBO" />
+		<constructor-arg name="remoteServiceName" value="filterCriteriaBOService" />
+		<property name="filterCriteriaDAO" ref="filterCriteriaDAO"></property>
+	</bean>
+
+	<bean id="templateBO" factory-bean="reportingServiceBeanFactory"
+		factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName"
+			value="com.path.bo.reporting.ftr.template.impl.TemplateBOImpl" />
+		<constructor-arg name="interfaceName"
+			value="com.path.bo.reporting.ftr.template.TemplateBO" />
+		<constructor-arg name="remoteServiceName" value="templateBOService" />
+		<property name="templateDAO" ref="templateDAO"></property>
+		<property name="commonRepFuncBO" ref="commonRepFuncBO"></property>
+		<property name="smartBO" ref="smartBO"></property>
+	</bean>
+
+	<bean id="columnTemplateBO" factory-bean="reportingServiceBeanFactory"
+		factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName"
+			value="com.path.bo.reporting.ftr.columntemplate.impl.ColumnTemplateBOImpl" />
+		<constructor-arg name="interfaceName"
+			value="com.path.bo.reporting.ftr.columntemplate.ColumnTemplateBO" />
+		<constructor-arg name="remoteServiceName" value="columnTemplateBOService" />
+		<property name="columnTemplateDAO" ref="columnTemplateDAO"></property>
+		<property name="columnTemplateDetBO" ref="columnTemplateDetBO"></property>
+		<property name="commonRepFuncBO" ref="commonRepFuncBO"></property>
+		<property name="smartBO" ref="smartBO"></property>
+	</bean>
+	<bean id="schedulerBO" factory-bean="reportingServiceBeanFactory"
+		factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName"
+			value="com.path.bo.reporting.ftr.scheduler.impl.SchedulerBOImpl" />
+		<constructor-arg name="interfaceName"
+			value="com.path.bo.reporting.ftr.scheduler.SchedulerBO" />
+		<constructor-arg name="remoteServiceName" value="schedulerBOService" />
+		<property name="schedulerDAO" ref="schedulerDAO"></property>
+		<property name="fcrBO" ref="fcrBO"></property>
+		<property name="designerBO" ref="designerBO"></property>
+		<property name="schedulerUtilities" ref="schedulerUtilities"></property>
+	</bean>
+	
+	<bean id="columnTemplateDetBO" factory-bean="reportingServiceBeanFactory"
+		factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName"
+			value="com.path.bo.reporting.ftr.columntemplate.impl.ColumnTemplateDetBOImpl" />
+		<constructor-arg name="interfaceName"
+			value="com.path.bo.reporting.ftr.columntemplate.ColumnTemplateDetBO" />
+		<constructor-arg name="remoteServiceName" value="columnTemplateDetBOService" />
+		<property name="columnTemplateDetDAO" ref="columnTemplateDetDAO"></property>
+	</bean>
+	
+	<bean id="templateProcBO" factory-bean="reportingServiceBeanFactory" factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName" value="com.path.bo.reporting.ftr.templateProcess.impl.TemplateProcessBOImpl" />
+		<constructor-arg name="interfaceName" value="com.path.bo.reporting.ftr.templateProcess.TemplateProcessBO" />
+		<constructor-arg name="remoteServiceName" value="templateProcBOService" />
+		<property name="templateProcDAO" ref="templateProcDAO"></property>
+	</bean>
+	
+	<bean id="fcrBO" factory-bean="reportingServiceBeanFactory" factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName" value="com.path.bo.reporting.ftr.fcr.impl.FcrBOImpl" />
+		<constructor-arg name="interfaceName" value="com.path.bo.reporting.ftr.fcr.FcrBO" />
+		<constructor-arg name="remoteServiceName" value="fcrBOService" />
+		<property name="commonLibBO" ref="commonLibBO"></property>
+		<property name="fcrDAO" ref="fcrDAO"></property>
+	</bean>
+	
+	<bean id="foldersBO" factory-bean="reportingServiceBeanFactory" factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName" value="com.path.bo.reporting.ftr.folders.impl.FoldersBOImpl" />
+		<constructor-arg name="interfaceName" value="com.path.bo.reporting.ftr.folders.FoldersBO" />
+		<constructor-arg name="remoteServiceName" value="foldersBOService" />
+		<property name="foldersDAO" ref="foldersDAO"></property>
+	</bean>
+	
+	<bean id="connectionBO" factory-bean="reportingServiceBeanFactory" factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName" value="com.path.bo.reporting.connection.impl.ConnectionBOImpl" />
+		<constructor-arg name="interfaceName" value="com.path.bo.reporting.connection.ConnectionBO" />
+		<constructor-arg name="remoteServiceName" value="connectionBOService" />
+		<property name="connectionDAO" ref="connectionDAO"></property>
+	</bean>
+	
+		<bean id="cbParamBO" factory-bean="reportingServiceBeanFactory"
+		factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName"
+			value="com.path.bo.reporting.ftr.cbParam.impl.CbParamBOImpl" />
+		<constructor-arg name="interfaceName"
+			value="com.path.bo.reporting.ftr.cbParam.CbParamBO" />
+		<constructor-arg name="remoteServiceName" value="cbParamBOService" />
+		<property name="cbParamDAO" ref="cbParamDAO"></property>
+	</bean>
+	
+	<bean id="controlRecordBO" factory-bean="reportingServiceBeanFactory"
+		factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName"
+			value="com.path.bo.reporting.ftr.controlRecord.impl.ControlRecordBOImpl" />
+		<constructor-arg name="interfaceName"
+			value="com.path.bo.reporting.ftr.controlRecord.ControlRecordBO" />
+		<constructor-arg name="remoteServiceName" value="controlRecordBOService" />
+		<property name="controlRecordDAO" ref="controlRecordDAO"></property>
+	</bean>
+	
+	<bean id="templateHeaderBO" factory-bean="reportingServiceBeanFactory"
+		factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName"
+			value="com.path.bo.reporting.ftr.templateHeader.impl.TemplateHeaderBOImpl" />
+		<constructor-arg name="interfaceName"
+			value="com.path.bo.reporting.ftr.templateHeader.TemplateHeaderBO" />
+		<constructor-arg name="remoteServiceName" value="templateHeaderBOService" />
+		<property name="templateHeaderDAO" ref="templateHeaderDAO"></property>
+	</bean>
+	<bean id="timeBucketsBO" factory-bean="reportingServiceBeanFactory"
+		factory-method="getInstance" parent="baseBO">
+		<constructor-arg name="implClassName"
+			value="com.path.bo.reporting.ftr.timeBuckets.impl.TimeBucketsBOImpl" />
+		<constructor-arg name="interfaceName"
+			value="com.path.bo.reporting.ftr.timeBuckets.TimeBucketsBO" />
+		<constructor-arg name="remoteServiceName" value="timeBucketsBOService" />
+		<property name="timeBucketsDAO" ref="timeBucketsDAO"></property>
+	</bean>
+	<bean id="timerScheduleBO" factory-bean="reportingServiceBeanFactory"
+		factory-method="getInstance" parent="baseBO" destroy-method="stopTimer">
+		<constructor-arg name="implClassName"
+			value="com.path.bo.reporting.ftr.scheduler.impl.TimerScheduleBOImpl" />
+		<constructor-arg name="interfaceName"
+			value="com.path.bo.reporting.ftr.scheduler.TimerScheduleBO" />
+		<constructor-arg name="remoteServiceName" value="timerScheduleBOService" />
+		<property name="schedulerDAO" ref="schedulerDAO"></property>
+		<property name="reportDAO" ref="reportDAO"></property>
+		<property name="reportBO" ref="reportBO"></property>
+		<property name="procBO" ref="procBO"></property>
+		<property name="snapShotBO" ref="snapShotBO"></property>
+		<property name="commonRepFuncBO" ref="commonRepFuncBO"></property>
+		<property name="mailServerConfigBO" ref="mailServerConfigBO"></property>
+		<property name="commonLookupBO" ref="commonLookupBO"></property>
+		<property name="commonReportingBO" ref="commonReportingBO"></property>
+		<property name="reportingPortalURL" value="${app.REP.url}"></property>
+		<property name="webServiceCommonBO" ref="webServiceCommonBO"></property>
+	</bean>
+	
+	<bean id="schedulerUtilities" factory-bean="reportingServiceBeanFactory" factory-method="getInstance"  parent="baseBO">
+		<constructor-arg name="implClassName" value="com.path.bo.reporting.ftr.scheduler.impl.SchedulerUtilitiesImpl"  />
+		<constructor-arg name="interfaceName" value="com.path.bo.reporting.ftr.scheduler.SchedulerUtilities" />
+		<constructor-arg name="remoteServiceName" value="schedulerUtilitiesBOServices" />
+			<property name="timerScheduleBO" ref="timerScheduleBO"></property>
+	</bean>	
+	
+	<bean id="schedInitBean" factory-bean="reportingServiceBeanFactory"
+		factory-method="getInstance" parent="baseBO" init-method="startEngine">
+		<constructor-arg name="implClassName"
+			value="com.path.bo.reporting.ftr.scheduler.impl.SchedulerBOImpl" />
+		<constructor-arg name="interfaceName"
+			value="com.path.bo.reporting.ftr.scheduler.SchedulerBO" />
+		<constructor-arg name="remoteServiceName" value="schedulerBOService" />
+		<property name="schedulerUtilities" ref="schedulerUtilities"></property>
+		<property name="schedulerDAO" ref="schedulerDAO"></property>
+	</bean>
+	
+</beans>

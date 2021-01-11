@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+ 
+	<bean id="wizardAction" class="com.path.actions.reporting.designer.WizardAction" scope="prototype"
+		parent="baseAction">
+	    <property name="designerBO" ref="designerBO"></property>
+	    <property name="queryBO" ref="queryBO"></property>
+	</bean>
+	<bean id="queryDesignerAction" class="com.path.actions.reporting.designer.QueryDesignerAction" scope="prototype"
+		parent="commonReportingAction">
+	    <property name="queryBO" ref="queryBO"></property>
+	    <property name="commonLookupBO" ref="commonLookupBO"></property>
+	    <property name="commonLibBO" ref="commonLibBO"></property>
+	     <property name="designerBO" ref="designerBO"></property>
+	</bean>	
+	<bean id="editorAction" class="com.path.actions.reporting.designer.EditorAction" scope="prototype" parent="baseAction">
+	  <property name="designerBO" ref="designerBO"></property>
+	  <property name="queryBO" ref="queryBO"></property>
+	  <property name="commonRepFuncBO" ref="commonRepFuncBO"></property>
+	  <property name="commonLookupBO" ref="commonLookupBO"></property>
+	  <property name="commonReportingBO" ref="commonReportingBO"></property>
+	  <property name="commonLibBO" ref="commonLibBO"></property>
+	</bean>
+	<bean id="reportsListAction" class="com.path.actions.reporting.designer.ReportsListAction" scope="prototype"
+		parent="baseAction">
+		<property name="designerBO" ref="designerBO"></property>
+		<property name="hyperlinksBO" ref="hyperlinksBO"></property>
+		<property name="commonLookupBO" ref="commonLookupBO"></property>
+	</bean>
+	<bean id="queriesListAction" class="com.path.actions.reporting.designer.QueriesListAction" scope="prototype"
+		parent="baseAction">
+		<property name="queryBO" ref="queryBO"></property>
+		<property name="commonRepFuncBO" ref="commonRepFuncBO"></property>
+	</bean>
+	
+	<bean id="imageAction" class="com.path.actions.reporting.designer.ImageAction" scope="prototype"
+		parent="baseAction">
+		<property name="ImageBO"  ref="ImageBO"></property>
+	</bean>
+	
+	<bean id="uploadImageAction" class="com.path.actions.reporting.designer.UploadImageAction" scope="prototype" parent="baseAction">
+	<property name="uploadImageBO"  ref="uploadImageBO"></property>
+	</bean>
+	
+	<bean id="snapShotAction" class="com.path.actions.reporting.designer.SnapshotsAction" scope="prototype"
+		parent="baseAction">
+		<property name="snapShotBO"  ref="snapShotBO"></property>
+		<property name="reportBO" ref="reportBO"></property>
+	</bean>
+
+
+	<bean id="archiveAction" class="com.path.actions.reporting.snapshots.ArchiveAction" scope="prototype" parent="baseAction">
+		<property name="commonLookupBO"  ref="commonLookupBO"></property>
+		<property name="snapShotBO"  	 ref="snapShotBO"></property>
+	</bean>
+	
+	<bean id="entitiesAction"
+		class="com.path.actions.reporting.designer.EntitiesAction"
+		scope="prototype" parent="baseAction">
+		<property name="EntitiesBO" ref="entitiesBO"></property>
+	</bean>
+	
+	<bean id="proceduresAction" class="com.path.actions.reporting.designer.ProceduresAction" scope="prototype"
+		parent="baseAction">
+			<property name="procBO" ref="procBO"></property>
+			<property name="commonLookupBO" ref="commonLookupBO"></property>
+	</bean>
+	
+	<bean id="subReportAction" class="com.path.actions.reporting.designer.SubReportAction" scope="prototype"
+		parent="baseAction">
+			<property name="designerBO" ref="designerBO"></property>
+	</bean>
+	
+	<bean id="uploadDownloadReportAction" class="com.path.actions.reporting.designer.UploadDownloadReportAction" scope="prototype" parent="baseAction">
+		<property name="designerBO" ref="designerBO"></property>
+		<property name="commonRepFuncBO" ref="commonRepFuncBO"></property>
+		<property name="queryBO" ref="queryBO"></property>
+		<property name="commonLookupBO" ref="commonLookupBO"></property>
+		<property name="commonLibBO" ref="commonLibBO"></property>
+	</bean>
+	
+	
+	<bean id="hyperlinksAction" class="com.path.actions.reporting.designer.HyperlinksAction" scope="prototype" parent="baseAction">
+		<property name="hyperlinksBO" ref="hyperlinksBO"></property>
+	</bean>
+	
+	<bean id="hashTableAction" class="com.path.actions.reporting.designer.HashTableAction" scope="prototype"
+		parent="baseAction">
+			<property name="designerBO" ref="designerBO"></property>
+	</bean>
+	
+	<bean id="repClientAction" class="com.path.actions.reporting.designer.ReportClientAction" scope="prototype"
+		parent="baseAction">
+			<property name="designerBO" ref="designerBO"></property>
+	</bean>
+	
+	<bean id="uploadDownloadImagesAction" class="com.path.actions.reporting.designer.UploadDownloadImagesAction" scope="prototype"
+		parent="baseAction">
+	</bean>
+	
+	<bean id="userAccessAction" class="com.path.actions.reporting.snapshots.UserAccessAction" scope="prototype" parent="baseAction">
+		<property name="snapShotBO"  	 ref="snapShotBO"></property>
+	</bean>
+	
+	<bean id="rep_automatedImportReportAction" class="com.path.actions.reporting.designer.AutomatedImportReportAction" scope="prototype" parent="baseAction">
+		<property name="commonLookupBO"  	 ref="commonLookupBO"></property>
+		<property name="designerBO"  	 	 ref="designerBO"></property>
+	</bean>
+</beans>
